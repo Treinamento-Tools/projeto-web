@@ -1,14 +1,14 @@
 require.config({
     paths: {
         "angular": "../assets/js/angular.min",
-        "angular-route": "../assets/js/angular-route.min",
+        "ngRoute": "../assets/js/angular-route.min",
         "domReady": "../assets/js/domReady"
     },
     shim: {
         "angular": {
             exports: "angular"
         },
-        "angular-route": {
+        "ngRoute": {
             deps: ["angular"]
         },
         "module": {
@@ -17,6 +17,4 @@ require.config({
     }
 });
 
-require(["domReady!", "angular", "app"], function(doc, angular) {
-    angular.bootstrap(document, ['aplicacao']);
-});
+require(["app"]);
