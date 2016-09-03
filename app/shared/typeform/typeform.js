@@ -6,16 +6,18 @@ define(['angular'], function(angular) {
         this.formulariosRespondidos = null;
         this.questoes = null;
 
-        function Questao(id, type, nome) {
+        function Questao(id, tipo, nome) {
             this.id = id,
-            this.type = type;
+            this.tipo = tipo;
             this.nome = nome;
+            this.classe = "questao";
         }
 
         function Grupo(id, nome) {
             this.id = id,
             this.nome = nome;
-            this.questions = [];
+            this.questoes = [];
+            this.classe = "grupo";
         }
 
         function Formulario(token) {
@@ -85,7 +87,7 @@ define(['angular'], function(angular) {
                 return field.id == typeFormQuestion.group.substr(6)
             }).indexOf(true);
             var tipoQuestao = typeFormQuestion.id.substr(0, typeFormQuestion.id.indexOf("_" + typeFormQuestion.field_id));
-            questoes[indiceGrupo].questions.push(new Questao(typeFormQuestion.field_id, tipoQuestao, typeFormQuestion.question));
+            questoes[indiceGrupo].questoes.push(new Questao(typeFormQuestion.field_id, tipoQuestao, typeFormQuestion.question));
         }
 
         function carregarQuestao(questoes, typeFormQuestion) {
